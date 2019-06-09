@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登录</title>
+<style>
+	ul li{
+		list-style:none;
+	}
+</style>
+
+<script>
+  window.onload = init;
+  function init() {
+      var registerBtn = document.getElementById("register-btn");
+      if (registerBtn != null) {
+          registerBtn.onclick = register;
+      }
+  }
+  function register() {
+      var userForm = document.getElementById("form");
+      userForm.setAttribute("action", "register");
+      userForm.submit();
+  }
+</script>
+
+</head>
+<body>
+	<div>
+	<form name="form" id="form"  accept-charset="utf-8" action="/user/dologin">
+		<ul>
+			<li>
+				<label>用户名：</label>
+				<div>
+					<input type="text" id="userName" name="userName"  maxlength="16" />
+				</div>
+			</li>
+			
+			<li>
+				<label>密码：</label>
+				<div>
+					<input type="password" id="password"  name="password"  maxlength="16"/>
+				</div>
+			</li>
+			<li>
+				<div>
+					<input type="submit" value="登录"/>
+					<input type="button" id="register-btn" value="注册" >
+				</div>
+			</li>
+		</ul>
+		</form>
+	</div>
+	<div><p th:text="${msg}"></p></div>
+	
+
+
+</body>
+</html>
